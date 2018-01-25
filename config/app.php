@@ -29,7 +29,7 @@ return [
     'env' => env('APP_ENV', 'production'),
 
     /*
-    |--------------------------------------------------------------------------
+    |---------------------------------'Chumper\Zipper\ZipperServiceProvider'-----------------------------------------
     | Application Debug Mode
     |--------------------------------------------------------------------------
     |
@@ -167,6 +167,8 @@ return [
         /*
          * Package Service Providers...
          */
+         Intervention\Image\ImageServiceProvider::class,
+         'Chumper\Zipper\ZipperServiceProvider',
 
         /*
          * Application Service Providers...
@@ -226,6 +228,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Zipper' => 'Chumper\Zipper\Zipper',
     ],
 
 ];

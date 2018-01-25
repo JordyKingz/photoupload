@@ -1,0 +1,98 @@
+$p: #484848;
+$red: #E06C75;
+$green: #8DC379;
+$yellow: #E5C07B;
+$blue: #01476A;
+$blue-hover: #22678A;
+
+body {
+  color: $p;
+  font-size: 16px;
+  line-height: 36px;
+  letter-spacing: 0.6px;
+  font-family: 'Nunito', 'Open Sans', sans-serif;
+  img {
+    max-width: 100%;
+  }
+  ul {
+    li {
+      list-style: none;
+    }
+  }
+  h1, h2, h3, h4 {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 36px;
+  }
+  p {
+    color: $p;
+    font-size: 16px;
+    line-height: 24px;
+    letter-spacing: 0.6px;
+    font-family: 'Nunito', 'Open Sans', sans-serif;
+  }
+  a {
+    color: $blue;
+  }
+}
+
+header.header {
+  padding: 20px;
+}
+
+#login-wrapper {
+  background-image: url('/assets/images/banner-login.jpeg');
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  float: left;
+  width: 70%;
+  position: relative;
+  .overlay-image {
+    width: 100px;
+    height: 100px;
+    background-color: #FFF;
+    border-radius: 200px;
+    position: absolute;
+    top: 45%;
+    left: 50%;
+    padding: 25px;
+    box-shadow: 0 6px 6px 0 rgba(38,50,56,0.19), 0 10px 20px 0 rgba(38,50,56,0.19);
+    img {
+      display:block;
+      margin:auto;
+      max-width: 100%;
+    }
+  }
+  p {
+    color: $p;
+    font-size: 16px;
+    line-height: 36px;
+    letter-spacing: 0.6px;
+    font-family: 'Nunito', 'Open Sans', sans-serif;
+  }
+
+
+}
+
+.login-container {
+  padding-top: 150px;
+  float: left;
+  width: 25%;
+  height: 100vh;
+  background-color: #FFF;
+  border-left: 1px solid #CCC;
+  h2 {
+    line-height: 1.5;
+    font-size: 1.3125rem;
+  }
+}
+
+@media (max-width:950px) {
+  #login-wrapper {
+    display: none;
+  }
+  .login-container {
+    width: 100%;
+    padding-top: 20px;
+  }
+}
