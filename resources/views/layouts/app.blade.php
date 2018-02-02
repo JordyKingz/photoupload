@@ -87,9 +87,9 @@
           <div class="col">
             <p><a href="/cp">Welkom,</a> <a href="/cp/profile">{{Auth::user()->name}}</a></p>
           </div>
-          <!-- <div class="col-2 float-right">
-            <p class="text-right"><a href="">Overzicht</a></p>
-          </div> -->
+          <div class="col-2 float-right">
+            <p class="text-right"><a href="/cp/overview">Overzicht</a></p>
+          </div>
           <div class="col-2 float-right">
             <a href="{{ url('/logout') }}" class="text-right" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
               <div class="item">

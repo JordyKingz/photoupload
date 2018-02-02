@@ -71,7 +71,7 @@
         </div>
 
         <div class="form-group">
-          <button type="submit" class="btn btn-info">Foto's verzenden</button>
+          <button type="submit" class="btn btn-info">Foto's toevoegen</button>
         </div>
       </form>
     </div>

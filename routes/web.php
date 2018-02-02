@@ -27,6 +27,12 @@ Route::group(['middleware' => 'auth'], function () {
   });
 
   Route::get('/cp', 'HomeController@index')->name('home');
+  Route::get('/cp/overview', 'FolderController@index');
+
+  Route::get('/cp/folder/open/{id}', 'FolderController@show');
+  Route::get('/cp/folder/send/{id}', 'FolderController@send');
+  Route::get('/cp/folder/delete/{id}', 'FolderController@destroy');
+
 
   Route::get('/cp/profile', function () {
       return view('profile');
