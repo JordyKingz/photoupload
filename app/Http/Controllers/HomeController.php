@@ -53,7 +53,7 @@ class HomeController extends Controller
           $folder->delete();
 
         }
-        return view('homepage');
+        return view('backend.dashboard');
     }
 
     public function store(Request $request) {

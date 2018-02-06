@@ -4,9 +4,9 @@
 
 @section('content')
 <div id="login-wrapper">
-  <!-- <div class="overlay-image">
-    <a href="https://www.nefkon.com"><img src="{{ asset('assets/images/favicon.png') }}" alt="Login page Nefkon logo"></a>
-  </div> -->
+  <div class="overlay-image">
+    <a href="/"><img src="{{ asset('assets/images/favicon.png') }}" alt="Login page Nefkon logo"></a>
+  </div>
 </div>
 
 <div class="login-container container">
@@ -38,7 +38,7 @@
           <label for="password" class="control-label">Password</label>
           <input type="password" name="password" class="form-control" placeholder="Wachtwoord" required>
         </div>
-        
+
         <div class="form-group">
           <button type="submit" class="btn btn-info btn-small">Inloggen</button>
         </div>
