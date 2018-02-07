@@ -21,7 +21,7 @@ class FolderController extends Controller
         $folders = null;
       }
 
-      return view('overview', array(
+      return view('backend.dashboard', array(
         'folders' => $folders
       ));
     }
@@ -79,7 +79,7 @@ class FolderController extends Controller
         $folder = Folder::find($id);
         $photos = Photos::where('folder_id', $id)->get();
 
-        return view('show', array(
+        return view('backend.show', array(
           'folder' => $folder,
           'photos' => $photos
         ));

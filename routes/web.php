@@ -11,9 +11,11 @@
 |
 */
 
-Route::get('/', function () {
-    return view('frontend.homepage');
-});
+// Route::get('/', function () {
+//     return view('frontend.homepage');
+// });
+
+Route::get('/', 'PageController@index');
 
 Auth::routes();
 
@@ -27,6 +29,7 @@ Route::group(['middleware' => 'auth'], function () {
   });
 
   Route::get('/cp', 'HomeController@index')->name('home');
+
   Route::get('/cp/overview', 'FolderController@index');
 
   Route::get('/cp/folder/open/{id}', 'FolderController@show');
@@ -35,11 +38,12 @@ Route::group(['middleware' => 'auth'], function () {
 
 
   Route::get('/cp/profile', function () {
-      return view('profile');
+      return view('backend.profile');
   });
 
   Route::post('/cp/profile', 'HomeController@storeProfile');
 
+  Route::get('/cp/photo', 'HomeController@create');
   Route::post('/cp/photo/upload', 'HomeController@store');
 
 });

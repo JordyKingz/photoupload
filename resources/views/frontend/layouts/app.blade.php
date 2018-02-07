@@ -72,7 +72,7 @@
         'csrfToken' => csrf_token(),
     ]) !!};
   </script>
-  <head>
+</head>
 
   <body id="top">
     <!-- Wrapper -->
@@ -142,8 +142,25 @@
     <footer id="footer" class="footer-light">
         <div class="copyright-content">
             <div class="container">
-                <div class="copyright-text text-center">&copy; <?php echo date('Y'); ?> Gerrie Turksma
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="copyright-text text-center">&copy; <?php echo date('Y'); ?> Gerrie Turksma </div>
                 </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="copyright-text text-center"><a href="mailto:info@gerrieturksma.com">info@gerrieturksma.com</a></div>
+                </div>
+              </div>
+              <div class="row">
+                <div class="col-md-12 text-center">
+                  Ontwikkeling:
+                  <a href="https://nefkon.com" class="m-link">
+                    nefkon.com
+                  </a>
+                </div>
+              </div>
+
             </div>
         </div>
     </footer>

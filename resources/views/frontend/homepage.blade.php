@@ -26,184 +26,22 @@
     <!-- Portfolio -->
     <div id="portfolio" class="grid-layout portfolio-4-columns" data-margin="0" data-lightbox="gallery">
 
+        @foreach($portfolios as $portfolio)
         <!-- portfolio item -->
         <div class="portfolio-item img-zoom">
             <div class="portfolio-item-wrap">
                 <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/1.jpg') }}" alt=""></a>
+                    <a href="#"><img src="/storage/thumbnail/{{$portfolio->thumbnail}}" alt=""></a>
                 </div>
                 <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/1.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
+                    <a data-lightbox="gallery-item" href="/storage/thumbnail/{{$portfolio->thumbnail}}" class="btn btn-light btn-rounded">Zoom</a>
                 </div>
             </div>
         </div>
-        <!-- end: portfolio item -->
-
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/2.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/2.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/3.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/3.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/4.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/4.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/5.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/5.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/6.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/6.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/7.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/7.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
+        @endforeach
         <!-- end: portfolio item -->
 
 
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/8.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/8.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-
-                        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/9.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/9.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-
-                        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/10.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/10.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-
-             <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/11.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/11.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/12.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/12.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/13.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/13.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
-        <!-- portfolio item -->
-        <div class="portfolio-item img-zoom">
-            <div class="portfolio-item-wrap">
-                <div class="portfolio-image">
-                    <a href="#"><img src="{{ asset('assets/images/portfolio/14.jpg') }}" alt=""></a>
-                </div>
-                <div class="portfolio-description">
-                    <a title="Paper Pouch!" data-lightbox="gallery-item" href="{{ asset('assets/images/portfolio/14.jpg') }}" class="btn btn-light btn-rounded">Zoom</a>
-                </div>
-            </div>
-        </div>
-        <!-- end: portfolio item -->
 
 
 

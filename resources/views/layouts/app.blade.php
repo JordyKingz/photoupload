@@ -80,47 +80,7 @@
   <head>
 
   <body id="top">
-    @if(!Auth::guest())
-    <header class="header">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            <p><a href="/cp">Welkom,</a> <a href="/cp/profile">{{Auth::user()->name}}</a></p>
-          </div>
-          <div class="col-2 float-right">
-            <p class="text-right"><a href="/cp/overview">Overzicht</a></p>
-          </div>
-          <div class="col-2 float-right">
-            <a href="{{ url('/logout') }}" class="text-right" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-              <div class="item">
-                <p>
-                  Logout
-                </p>
-              </div>
-            </a>
-            <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
-              {{ csrf_field() }}
-            </form>
-          </div>
-        </div>
-      </div>
-    </header>
-    @endif
-
     @yield('content')
-
-    @if(!Auth::guest())
-    <footer class="footer">
-      <div class="container">
-        <div class="row">
-          <div class="col">
-            &copy; <?php echo date('Y'); ?> Gerrie Turksma
-          </div>
-        </div>
-      </div>
-    </footer>
-    @endif
-
   </body>
 
   </html>

@@ -10,6 +10,7 @@ use Carbon\Carbon;
 
 use App\Folder;
 use App\Photos;
+use App\Portfolio;
 
 class HomeController extends Controller
 {
@@ -53,13 +54,28 @@ class HomeController extends Controller
           $folder->delete();
 
         }
-        return view('backend.dashboard');
+
+        $folders = Folder::all();
+        if($folders->isEmpty())
+        {
+          $folders = null;
+        }
+
+        return view('backend.dashboard', array(
+          'folders' => $folders
+        ));
+    }
+
+    public function create()
+    {
+        return view('backend.store');
     }
 
     public function store(Request $request) {
       $validator = Validator::make($request->all(), [
         'email' => 'required|email',
         'name' => 'required',
+        'thumb' => '',
         'photo' => 'required',
       ]);
 
@@ -108,6 +124,23 @@ class HomeController extends Controller
       $folder->count_photos = $count;
       $folder->save();
 
+      // Create Thumbnail for the website
+      $thumb = $request->file('thumb');
+      if($thumb) {
+        $filename = time()  . 'thumb.' . $thumb->getClientOriginalExtension();
+        $path = storage_path('public/thumbnail');
+        $img = \Image::make($thumb->getRealPath());
+
+        $img->stream();
+
+        \Storage::put('public/thumbnail/'.$filename, $img);
+
+        // Create new Thumbnail
+        $thumbnail = new Portfolio;
+        $thumbnail->thumbnail = $filename;
+        $thumbnail->save();
+      }
+
       $path = storage_path('app/public/'.$date.'/'.$name.'/zip/'.$name);
       $files = glob(storage_path('app/public/'.$date.'/'.$name.'/images'));
 
@@ -151,7 +184,6 @@ class HomeController extends Controller
 
       $user = Auth::user();
       // Compare if passwords match
-
 
       $user->name = $request->name;
       $user->email = $request->email;

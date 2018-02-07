@@ -23,6 +23,16 @@
                   <i class="m-nav__link-icon la la-home"></i>
                 </a>
               </li>
+              <li class="m-nav__separator">
+                -
+              </li>
+              <li class="m-nav__item">
+                <a href="" class="m-nav__link">
+                  <span class="m-nav__link-text">
+                    Folder opened: {{$folder->username}}
+                  </span>
+                </a>
+              </li>
             </ul>
           </div>
           <div>
@@ -65,7 +75,6 @@
         <div class="row">
           <div class="col-xl-12">
             <!--begin:: Widgets/Support Tickets -->
-            @if($folders)
             <div class="m-portlet m-portlet--full-height ">
               <div class="m-portlet__head">
                 <div class="m-portlet__head-caption">
@@ -78,7 +87,6 @@
               </div>
               <div class="m-portlet__body">
                 <div class="m-widget3">
-                  @foreach($folders as $folder)
                   <div class="m-widget3__item">
                     <div class="m-widget3__header">
                       <div class="m-widget3__info">
@@ -89,47 +97,24 @@
                         <span class="m-widget3__time">
                           {{$folder->created_at->format('d-m-Y')}}
                         </span>
-                      </div>
-                      @if($folder->send == 0)
-                      <a href="/cp/folder/open/{{$folder->id}}" class="m-widget3__status m--font-success">
-                        Openen
-                      </a>
-                      <a href="/cp/folder/send/{{$folder->id}}" class="m-widget3__status m--font-info">Verzenden</a>
-                      @else
-                      <a href="/cp/folder/open/{{$folder->id}}" class="m-widget3__status m--font-info">
-                        Openen
-                      </a>
-                      @endif
-                      <a href="/cp/folder/delete/{{$folder->id}}" class="m-widget3__status m--font-danger">Verwijderen</a>
-
-                    </div>
-                    <div class="m-widget3__header">
-                      <div class="m-widget3__info">
-                        <span class="m-widget3__username">
-                          E-mail: {{$folder->email}} &nbsp;-&nbsp; Total photo's: {{$folder->count_photos}} &nbsp;-&nbsp; Remove date: {{$folder->remove_date}}
+                        <span class="m-widget3__time">
+                          Total photo's: {{$folder->count_photos}}
                         </span>
                       </div>
-
                     </div>
-                  </div>
-                  @endforeach
-                </div>
-              </div>
-            </div>
-            @else
-            <div class="m-portlet m-portlet--full-height alert-warning alert-dismissible">
-              <div class="m-portlet__body">
-                <div class="m-widget3">
-                  <div class="m-widget3__item">
-                    <div class="m-widget3__header">
-                      <p>Nog geen foto's toegevoegd.</p>
+                    <div class="m-content">
+                      <div class="row">
+                        @foreach($photos as $photo)
+                          <div class="col-md-4" style="margin-bottom: 50px;">
+                            <img src="/storage/{{$folder->folder_name}}/{{$photo->name}}" alt="">
+                          </div>
+                        @endforeach
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-
-            @endif
             <!--end:: Widgets/Support Tickets -->
           </div>
         </div>
