@@ -85,7 +85,6 @@
   <!--end::Web font -->
       <!--begin::Base Styles -->
       <!--begin::Page Vendors -->
-  <link href="{{ asset('assets/assets/vendors/custom/fullcalendar/fullcalendar.bundle.css') }}" rel="stylesheet" type="text/css" />
   <!--end::Page Vendors -->
   <link href="{{ asset('assets/assets/vendors/base/vendors.bundle.css') }}" rel="stylesheet" type="text/css" />
   <link href="{{ asset('assets/assets/demo/demo7/base/style.bundle.css') }}" rel="stylesheet" type="text/css" />
@@ -122,13 +121,40 @@
   							</button>
   							<div id="m_header_menu" class="m-header-menu m-aside-header-menu-mobile m-aside-header-menu-mobile--offcanvas  m-header-menu--skin-light m-header-menu--submenu-skin-light m-aside-header-menu-mobile--skin-light m-aside-header-menu-mobile--submenu-skin-light "  >
   								<ul class="m-menu__nav  m-menu__nav--submenu-arrow ">
-  									<li class="m-menu__item  m-menu__item--submenu m-menu__item--rel"  data-menu-submenu-toggle="click" aria-haspopup="true">
-  										<a  href="/cp" class="m-menu__link m-menu__toggle">
+  									<li class="m-menu__item  m-menu__item--submenu m-menu__item--rel" >
+  										<a  href="/cp" class="m-menu__link">
   											<span class="m-menu__item-here"></span>
   											<span class="m-menu__link-text">
   												Dashboard
   											</span>
   										</a>
+  									</li>
+                    <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel">
+  										<a  href="/cp/photo" class="m-menu__link">
+  											<span class="m-menu__item-here"></span>
+  											<span class="m-menu__link-text">
+  												Add photo's
+  											</span>
+  										</a>
+  									</li>
+                    <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel">
+  										<a  href="/cp/profile" class="m-menu__link">
+  											<span class="m-menu__item-here"></span>
+  											<span class="m-menu__link-text">
+  												Profile
+  											</span>
+  										</a>
+  									</li>
+                    <li class="m-menu__item  m-menu__item--submenu m-menu__item--rel">
+  										<a href="{{ url('/logout') }}" class="m-menu__link" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+  											<span class="m-menu__item-here"></span>
+  											<span class="m-menu__link-text">
+  												Logout
+  											</span>
+  										</a>
+                      <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+                        {{ csrf_field() }}
+                      </form>
   									</li>
   							<!-- END: Horizontal Menu -->
   						</div>
@@ -137,7 +163,7 @@
   			</header>
   			<!-- END: Header -->
 
-        
+
 
     @yield('content')
 
@@ -170,10 +196,9 @@
     		<!-- begin::Quick Nav -->
         	<!--begin::Base Scripts -->
     		<script src="{{ asset('assets/assets/vendors/base/vendors.bundle.js') }}" type="text/javascript"></script>
-    		<script src="{{ asset('assets/assets/demo/demo7/base/scripts.bundle.js') }}" type="text/javascript"></script>
+      <script src="{{ asset('assets/assets/demo/demo7/base/scripts.bundle.js') }}" type="text/javascript"></script>
     		<!--end::Base Scripts -->
             <!--begin::Page Vendors -->
-    		<script src="{{ asset('assets/assets/vendors/custom/fullcalendar/fullcalendar.bundle.js') }}" type="text/javascript"></script>
     		<!--end::Page Vendors -->
             <!--begin::Page Snippets -->
     		<script src="{{ asset('assets/assets/app/js/dashboard.js') }}" type="text/javascript"></script>
