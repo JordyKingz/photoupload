@@ -55,7 +55,7 @@
   <link href="{{ asset('assets/bootstrap/bootstrap.min.css') }}" rel="stylesheet">
 
   <!-- CSS -->
-  <link href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800|Merriweather:300" rel="stylesheet" type="text/css" />
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,800,700,600|Montserrat:400,500,600,700|Raleway:100,300,600,700,800|Merriweather:300" rel="stylesheet" type="text/css" />
   <link href="{{ asset('css/frontend/plugins.css') }}" rel="stylesheet">
   <link href="{{ asset('css/frontend/style_theme.css') }}" rel="stylesheet">
   <link href="{{ asset('css/frontend/responsive.css') }}" rel="stylesheet">
