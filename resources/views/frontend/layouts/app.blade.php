@@ -86,7 +86,7 @@
                     <!--Logo-->
                     <div id="logo">
                         <a href="/" class="logo">
-                            <img src="{{ asset('assets/images/favicon.png') }}" alt="">
+                            <img src="{{ asset('assets/images/png_color.png') }}" alt="">
                         </a>
                     </div>
                     <!--End: Logo-->

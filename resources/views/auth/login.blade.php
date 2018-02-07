@@ -5,7 +5,7 @@
 @section('content')
 <div id="login-wrapper">
   <div class="overlay-image">
-    <a href="/"><img src="{{ asset('assets/images/favicon.png') }}" alt="Login page Nefkon logo"></a>
+    <a href="/"><img src="{{ asset('assets/images/png_color.png') }}" alt="Login page Nefkon logo"></a>
   </div>
 </div>
 

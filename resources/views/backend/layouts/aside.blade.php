@@ -6,7 +6,7 @@
   <!-- BEGIN: Brand -->
   <div class="m-brand  m-brand--skin-light ">
     <a href="/cp" class="m-brand__logo">
-      <img alt="" src="{{ asset('assets/images/favicon.png') }}"/>
+      <img alt="" src="{{ asset('assets/images/png_color.png') }}"/>
     </a>
   </div>
   <!-- END: Brand -->
