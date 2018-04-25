@@ -66,12 +66,6 @@ class HomeController extends Controller
           $folders = null;
         }
 
-        // Nexmo::message()->send([
-        //     'to'   => '31648582651',
-        //     'from' => '31648582651',
-        //     'text' => 'Using the facade to send a message.'
-        // ]);
-
         return view('backend.dashboard', array(
           'folders' => $folders
         ));
@@ -85,12 +79,12 @@ class HomeController extends Controller
     public function store(Request $request) {
       $validator = Validator::make($request->all(), [
         'email' => 'required|email',
-        'name' => 'required',
+        'phone' => 'required',
         'thumb' => '',
         'photo' => 'required',
       ]);
 
-      $name = preg_replace('/\s+/', '', $request->name);
+      $name = preg_replace('/\s+/', '', $request->email);
       $name = strtolower($name);
 
       $date = date('Y-m-d-H:i');
@@ -98,9 +92,21 @@ class HomeController extends Controller
       \Storage::makeDirectory('public/'.$date.'/'.$name.'/images');
       \Storage::makeDirectory('public/'.$date.'/'.$name.'/zip');
 
+      // Generate a random password
+      $length = 8;
+      $characters = '7ab2cde){fCD3EFGHI%^Jghi019jklmn#$opSTU5(}VWXqrstu48vw#$xyzABKLMN@%O6PQRYZ!^&*';
+      $charactersLength = strlen($characters);
+      $randompassword = '';
+      for ($i = 0; $i < $length; $i++) {
+         $randompassword .= $characters[rand(0, $charactersLength - 1)];
+      }
+      $smsToken = $randompassword;
+
+
+
       $folder = new Folder;
-      $folder->username = $request->name;
-      $folder->email = $request->email;
+      $folder->username = $smsToken;
+      $folder->email = $name;
       $folder->folder_name = $date.'/'.$name.'/images';
       $folder->folder_zip = $date.'/'.$name.'/zip';
       $folder->count_photos = 0;
@@ -160,19 +166,25 @@ class HomeController extends Controller
       if($path.'.zip') {
         \Session::flash('success', 'Upload successfully');
 
+        Nexmo::message()->send([
+            'to'   => $request->phone,
+            'from' => 'Gerrie Turksma',
+            'text' => "Thank you for your order. You can download your photo's after you entered your personal code: $smsToken \n
+                       Your code is valid for two weeks. Enter the code directly here to start your download: https://gerrieturksma.com/download/$smsToken"
+        ]);
         //TODO
         // See whats more easy. Sending the photos directly or show them first
         /*
         $path = public_path('storage/'.$date.'/'.$name.'/zip/'.$name.'.zip');
-
-        $array = array('name' => $request->name, 'email' => $request->email, 'subject' => 'Thank you for ordering your photos', 'from' => 'info@gerrieturksma.com', 'attach' => $path);
+        */
+        $array = array('name' => $request->name, 'token' => $smsToken, 'email' => $request->email, 'subject' => 'Thank you for ordering your photos', 'from' => 'info@gerrieturksma.com');
 
         //Sent new user email for activation
         \Mail::send('emails.notification', $array,
         function($message) use ($array) {
-          $message->to( $array['email'] )->from( $array['from'],  'Gerrie' )->subject($array['subject'])->attach($array['attach']);
+          $message->to( $array['email'] )->from( $array['from'],  'Gerrie' )->subject($array['subject']);
         });
-        */
+
       } else {
         \Session::flash('failed', 'Bestanden konden niet worden geupload');
       }

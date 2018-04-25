@@ -160,10 +160,12 @@
                                 <td style="padding: 40px; font-family: sans-serif; font-size: 15px; line-height: 20px; color: #555555;">
                                     Hello {{$name}},
                                     <br><br>
-                                    Thank you for your order. You can download your photo's from this email attachment.
-
+                                    Thank you for your order.
+                                    <br>
+                                    Click <a href="https://gerrieturksma.com/download/{{$token}}">here</a> to download directly
+                                    <br>
+                                    Your download link is valid for two weeks!
                                     <br> <br>
-
                                     Greetings,
                                     <br>
                                     Gerrie Turksma

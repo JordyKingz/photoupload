@@ -17,6 +17,10 @@
 
 Route::get('/', 'PageController@index');
 
+Route::get('/download/{token}', function() {
+  echo 'Download';
+});
+
 Auth::routes();
 
 Route::get('/register', function () {
@@ -28,22 +32,24 @@ Route::group(['middleware' => 'auth'], function () {
       return redirect('/cp');
   });
 
+  // Dashboard
   Route::get('/cp', 'HomeController@index')->name('home');
 
+  // Overview
   Route::get('/cp/overview', 'FolderController@index');
 
+  // Folders that are uploaded
   Route::get('/cp/folder/open/{id}', 'FolderController@show');
   Route::get('/cp/folder/send/{id}', 'FolderController@send');
   Route::get('/cp/folder/delete/{id}', 'FolderController@destroy');
 
-
-  Route::get('/cp/profile', function () {
-      return view('backend.profile');
-  });
-
-  Route::post('/cp/profile', 'HomeController@storeProfile');
-
+  // Photo upload
   Route::get('/cp/photo', 'HomeController@create');
   Route::post('/cp/photo/upload', 'HomeController@store');
 
+  // Profile pages
+  Route::get('/cp/profile', function () {
+      return view('backend.profile');
+  });
+  Route::post('/cp/profile', 'HomeController@storeProfile');
 });
