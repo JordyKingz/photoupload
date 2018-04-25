@@ -12,6 +12,8 @@ use App\Folder;
 use App\Photos;
 use App\Portfolio;
 
+use Nexmo;
+
 class HomeController extends Controller
 {
     /**
@@ -35,24 +37,27 @@ class HomeController extends Controller
 
         $folders = Folder::where('remove_date', '<=', $date)->get();
 
-        foreach($folders as $folder)
+        if(!$folders->isEmpty())
         {
-          $name = preg_replace('/\s+/', '', $folder->username);
-          $name = strtolower($name);
+          foreach($folders as $folder)
+          {
+            $name = preg_replace('/\s+/', '', $folder->username);
+            $name = strtolower($name);
 
-          $date = $folder->created_at->format('Y-m-d-H:i');
+            $date = $folder->created_at->format('Y-m-d-H:i');
 
-          $foldername = $date.'/'.$name;
+            $foldername = $date.'/'.$name;
 
-          $photos = Photos::where('folder_id', $id)->get();
+            $photos = Photos::where('folder_id', $folder->id)->get();
 
-          foreach($photos as $i) {
-            $i->delete();
+            foreach($photos as $i) {
+              $i->delete();
+            }
+            \Storage::deleteDirectory('public/'.$foldername); //delete from storage
+
+            $folder->delete();
+
           }
-          \Storage::deleteDirectory('public/'.$foldername); //delete from storage
-
-          $folder->delete();
-
         }
 
         $folders = Folder::all();
@@ -60,6 +65,12 @@ class HomeController extends Controller
         {
           $folders = null;
         }
+
+        // Nexmo::message()->send([
+        //     'to'   => '31648582651',
+        //     'from' => '31648582651',
+        //     'text' => 'Using the facade to send a message.'
+        // ]);
 
         return view('backend.dashboard', array(
           'folders' => $folders

@@ -169,6 +169,7 @@ return [
          */
          Intervention\Image\ImageServiceProvider::class,
          'Chumper\Zipper\ZipperServiceProvider',
+         Nexmo\Laravel\NexmoServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -230,6 +231,7 @@ return [
 
         'Image' => Intervention\Image\Facades\Image::class,
         'Zipper' => 'Chumper\Zipper\Zipper',
+        'Nexmo' => Nexmo\Laravel\Facade\Nexmo::class,
     ],
 
 ];
